@@ -47,17 +47,20 @@ function wagesEarnedOnDate(dateStamp){
     return parseFloat(this.payPerHour * hoursWorkedOnDate.call(this, dateStamp));
 }
 
-function findEmployeeByFirstName(fname){
-    this.find(eData => eData.firstName===fname);
+function findEmployeeByFirstName(empCollection, fname){
+    return empCollection.find(eData => eData.firstName===fname);
 }
 
-function calculatePayroll(){
-    const eligibleDates = this.timeInEvents.map(obj => obj.date);
+function calculatePayroll(employeeCollection){
+    //cycle through employees
+    //for each employee calculate all the wages for
+    //add it up and return
+    debugger;
 
-    let payable = eligibleDates.reduce((total, date) => total + wagesEarnedOnDate.call(this, date), 0);
-
-    return payable;
+    return employeeCollection.reduce((total,employee)=>{ console.log(employee);
+        total + allWagesFor(employee)})
 }
+
 /*
  We're giving you this function. Take a look at it, you might see some usage
  that's new and different. That's because we're avoiding a well-known, but
